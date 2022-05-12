@@ -117,4 +117,7 @@ input_img_for_RF = np.reshape(input_img_features, (input_img.shape[0], -1))
 #Predict
 img_prediction = lgb_model.predict(input_img_for_RF)
 img_prediction=np.argmax(img_prediction, axis=1)
-print("The prediction for this image is: ", img_prediction)
+#inverse-transform of labels
+labels = ["Besella Alba (Basale)", "Carissa Carandas (Karanda)","Ficus Religiosa(Peepal Tree)","Jasminum (Jasmine)","Magnifera Indica (Mango)", "Mentha (Mint)", "Moringa Oleifera (Drunmstick)", "Ocimim Tenuiflorum (Tulsi)", "Psidium Guajava (Guava)"]
+idx = img_prediction[0]
+print("Predicted leaf: "+str(labels[idx]))
